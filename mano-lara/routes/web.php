@@ -46,10 +46,13 @@ Route::get('/colors/show/{id}', [C::class, 'show'])->name('colors-show');
 
 //Pet
 
-Route::get('/pets', [P::class, 'index'])->name('pets-index');
-Route::get('/pets/create', [P::class, 'create'])->name('pets-create');
-Route::post('/pets', [P::class, 'store'])->name('pets-store');
-Route::get('/pets/edit/{pet}', [P::class, 'edit'])->name('pets-edit');
-Route::put('/pets/{pet}', [P::class, 'update'])->name('pets-update');
-Route::delete('/pets/{pet}', [P::class, 'destroy'])->name('pets-delete');
-Route::get('/pets/show/{id}', [P::class, 'show'])->name('pets-show');
+Route::get('/pets', [P::class, 'index'])->name('animals-index');
+Route::get('/pets/create', [P::class, 'create'])->name('animals-create');
+Route::post('/pets', [P::class, 'store'])->name('animals-store');
+Route::get('/pets/edit/{animal}', [P::class, 'edit'])->name('animals-edit');
+Route::put('/pets/{animal}', [P::class, 'update'])->name('animals-update');
+Route::delete('/pets/{animal}', [P::class, 'destroy'])->name('animals-delete');
+Route::get('/pets/show/{id}', [P::class, 'show'])->name('animals-show');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

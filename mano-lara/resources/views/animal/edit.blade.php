@@ -1,13 +1,17 @@
-@extends('main')
+@extends('main_animals')
 
 @section('content')
 <ul>
-    <form action="{{route('colors-update', $color)}}" method="post">
-    <input type="text" name="color_title" value="{{$color->title}}"/>
-    <input type="color" name="create_color_input" value="{{$color->color}}" />
+    <form action="{{route('animals-update', $animal)}}" method="post">
+    <input type="text" name="animal_name" value="{{$animal->name}}"/>
+    <select name="color_id">
+        @foreach($colors as $color)
+            <option value="{{$color->id}} @if ($color->id == $animal->color_id) selected @endif">{{$color->title}}</option>
+        @endforeach
+    </select>  
     @csrf
     @method ('put')
-    <button type="submit">Ja, ja, this is new color</button>
+    <button type="submit">I wish so</button>
     </form>
 </ul>
 @endsection

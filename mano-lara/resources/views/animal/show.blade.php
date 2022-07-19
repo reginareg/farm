@@ -1,15 +1,15 @@
-@extends('main')
+@extends('main_animals')
 
 @section('content')
 <ul>
     <li>
-        <div class="color-box" style="background:{{$color->color}};">
-        {{$color->color}}
-        <h2>{{$color->title}}</h2>
+        <div class="card-header" style="background:{{$animal->getThisAnimalsColor_plese->color}};">
+        {{$animal->animal}}
+        <h2>{{$animal->name}}</h2>
         </div>
         <div class="controls">
-        <a href="{{route('colors-edit', $color)}}">|EDIT|</a>
-        <form class="delete" action="{{route('colors-delete', $color)}}" method="post">
+        <a href="{{route('animals-edit', $animal)}}">|EDIT|</a>
+        <form class="delete" action="{{route('animals-delete', $animal)}}" method="post">
             @csrf
             @method('delete')
             <button type="submit">|Destroy|</button>

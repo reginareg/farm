@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->unsignedBigInteger('color_id');
+            $table->unsignedBigInteger('color_id')->default(1);
             $table->foreign('color_id')->references('id')->on('colors');
             $table->timestamps();
         });
